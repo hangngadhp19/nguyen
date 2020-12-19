@@ -27,5 +27,16 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func didTapConseillerButton() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "conseiller_login") as? ConseillerLoginViewController else {
+            return
+        }
+        
+        vc.title = "Connexion Conseiller"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
 
 }
