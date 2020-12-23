@@ -14,6 +14,9 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var table: UITableView!
     private var arrData = [CompteCourantModel]()
+    
+    // menu
+    var transparentView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,7 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     */
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -65,6 +69,10 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
     
     func refresh() {
         table.reloadData()
+    }
+    
+    @IBAction func onClickMenu(_ sender: Any) {
+        
     }
 
 }
