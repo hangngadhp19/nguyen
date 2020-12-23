@@ -69,9 +69,6 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         vc.item = item
-        //vc.title = item.titleNumComptes
-        //vc.navigationItem.largeTitleDisplayMode = .never
-        //vc.title = item.titleNomComptes
         vc.deletionHander = { [weak self] in
             self?.refresh()
         }
