@@ -13,4 +13,6 @@ struct CompteCourantModel {
     let titleMark:Int
     let titleTypeCompte:Int
     let titleArgent:Float
+    let titleClientId:Int
+    let titleId:Int
 }

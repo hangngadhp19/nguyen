@@ -6,63 +6,26 @@
 //
 
 import UIKit
-// import SQLite
+import CoreData
 
 class CourantDeposerViewController: UIViewController {
-/*
-    var database: Connection!
     
-    let compteCourantTable = Table("CompteCourant")
-    let id = Expression<Int>("id")
-    let client_id = Expression<Int>("client_id")
-    let argent = Expression<Int>("argent")
-    let mark = Expression<Int>("mark")
-    let type_compte = Expression<Int>("type_compte")
-    let date_created = Expression<Date>("date_created")
-*/
+    @IBOutlet weak var txt_argent_depose: UITextField!
+    
+    public var completionHandler: (() -> Void)?
+    
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        return dateFormatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-/*
-        do {
-            
-            let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let fileUrl = documentDirectory.appendingPathComponent("CompteCourant").appendingPathExtension("sqlite3")
-            
-            let database = try Connection(fileUrl.path)
-            self.database = database
-            
-            createTable()
-            
-        } catch {
-            print(error)
-        }
-*/
     }
-/*
-    @IBAction func createTable() {
-        print ("Create Table")
-        
-        let createTable = self.compteCourantTable.create { (table) in
-            table.column(self.id, primaryKey: true)
-            table.column(self.client_id)
-            table.column(self.argent)
-            table.column(self.mark)
-            table.column(self.type_compte)
-            table.column(self.date_created)
-        }
-        
-        do {
-            try self.database.run(createTable)
-            print ("Created table")
-        } catch {
-            print (error)
-        }
-        
-    }
-*/
 
     /*
     // MARK: - Navigation
@@ -73,5 +36,55 @@ class CourantDeposerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func didTapSaveButton(_ sender: Any) {
+        // connect db
+        let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context:NSManagedObjectContext = appDel.persistentContainer.viewContext
+        
+        // get data
+        var id_deposer = 0
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CompteCourant")
+        request.returnsObjectsAsFaults = false
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        request.fetchLimit = 1
+        
+        do {
+            let result = try context.fetch(request) as! [NSManagedObject]
+            id_deposer = result[0].value(forKey: "id") as! Int
+        }
+        catch let error as NSError {
+            print("\(error)")
+        }
+        // end get data to get id
+        
+        let newCompteCourant = NSEntityDescription.insertNewObject(forEntityName: "CompteCourant", into: context)
+        
+        newCompteCourant.setValue(Float(txt_argent_depose.text ?? "0"), forKey: "argent")
+        newCompteCourant.setValue(1, forKey: "client_id")
+        newCompteCourant.setValue(Date(), forKey: "date_created")
+        newCompteCourant.setValue(id_deposer + 1, forKey: "id")
+        newCompteCourant.setValue(2, forKey: "mark")
+        newCompteCourant.setValue(1, forKey: "type_compte")
+        
+        do {
+          try context.save()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        // reload tableView data which added
+        guard let vc = storyboard?.instantiateViewController(identifier: "comptecourant") as? CompteCourantViewController else {
+            return
+        }
+        
+        vc.completionHandler = { [weak self] in
+            vc.refresh()
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 }

@@ -31,7 +31,6 @@
 		EC9E0E30258BDB7100C08794 /* ClientComptesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0E2F258BDB7100C08794 /* ClientComptesData.swift */; };
 		EC9E0E33258BDBD000C08794 /* ClientComptesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0E32258BDBD000C08794 /* ClientComptesModel.swift */; };
 		EC9E0E3E258BF13200C08794 /* CompteCourantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0E3D258BF13200C08794 /* CompteCourantViewController.swift */; };
-		ECF7DAF125966B23002272BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECF7DAF025966B23002272BD /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +61,6 @@
 		EC9E0E2F258BDB7100C08794 /* ClientComptesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientComptesData.swift; sourceTree = "<group>"; };
 		EC9E0E32258BDBD000C08794 /* ClientComptesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientComptesModel.swift; sourceTree = "<group>"; };
 		EC9E0E3D258BF13200C08794 /* CompteCourantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteCourantViewController.swift; sourceTree = "<group>"; };
-		ECF7DAF025966B23002272BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8EA4CCC4105A6290DB06DF1 /* Pods-projet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projet.debug.xcconfig"; path = "Target Support Files/Pods-projet/Pods-projet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +97,6 @@
 		EC1B3490258774FE00602F24 /* projet */ = {
 			isa = PBXGroup;
 			children = (
-				ECF7DAF025966B23002272BD /* GoogleService-Info.plist */,
 				EC1B34B125877BA200602F24 /* Data */,
 				EC1B34AA2587791D00602F24 /* Model */,
 				EC1B34AB2587792300602F24 /* Controller */,
@@ -245,7 +242,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC1B34A12587750100602F24 /* LaunchScreen.storyboard in Resources */,
-				ECF7DAF125966B23002272BD /* GoogleService-Info.plist in Resources */,
 				EC1B349E2587750100602F24 /* Assets.xcassets in Resources */,
 				EC1B3499258774FE00602F24 /* Main.storyboard in Resources */,
 			);

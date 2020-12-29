@@ -14,6 +14,8 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var table: UITableView!
     private var arrData = [CompteCourantModel]()
+    
+    public var completionHandler: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +98,10 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
             return
         }
         
+        vc.completionHandler = { [weak self] in
+            self?.refresh()
+        }
+        
         vc.title = "Courant Retirer"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -106,8 +112,13 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
             return
         }
         
+        vc.completionHandler = { [weak self] in
+            self?.refresh()
+        }
+        
         vc.title = "Courant Déposer"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
