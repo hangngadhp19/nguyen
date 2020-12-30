@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		EC1B34D52587FA4B00602F24 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1B34D42587FA4B00602F24 /* ClientModel.swift */; };
 		EC2049AB2593D9D900468313 /* CourantDeposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2049AA2593D9D900468313 /* CourantDeposerViewController.swift */; };
 		EC2049AE2593D9F400468313 /* CourantRetirerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2049AD2593D9F400468313 /* CourantRetirerViewController.swift */; };
+		EC3A6614259D228C00DAE3DE /* ConseillerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3A6613259D228C00DAE3DE /* ConseillerModel.swift */; };
+		EC3A6618259D22C000DAE3DE /* ConseillerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3A6617259D22C000DAE3DE /* ConseillerData.swift */; };
 		EC3C1A37258D3A7900E0802D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C1A36258D3A7900E0802D /* Extension.swift */; };
 		EC3C1A3A258D3BC100E0802D /* ClientEspaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C1A39258D3BC100E0802D /* ClientEspaceCell.swift */; };
 		EC5EA80C258E53A400D51540 /* ConseillerLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EA80B258E53A400D51540 /* ConseillerLoginViewController.swift */; };
@@ -52,6 +54,8 @@
 		EC1B34D42587FA4B00602F24 /* ClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		EC2049AA2593D9D900468313 /* CourantDeposerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourantDeposerViewController.swift; sourceTree = "<group>"; };
 		EC2049AD2593D9F400468313 /* CourantRetirerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourantRetirerViewController.swift; sourceTree = "<group>"; };
+		EC3A6613259D228C00DAE3DE /* ConseillerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConseillerModel.swift; sourceTree = "<group>"; };
+		EC3A6617259D22C000DAE3DE /* ConseillerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConseillerData.swift; sourceTree = "<group>"; };
 		EC3C1A36258D3A7900E0802D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		EC3C1A39258D3BC100E0802D /* ClientEspaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientEspaceCell.swift; sourceTree = "<group>"; };
 		EC5EA80B258E53A400D51540 /* ConseillerLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConseillerLoginViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				EC1B34D42587FA4B00602F24 /* ClientModel.swift */,
 				EC9E0E32258BDBD000C08794 /* ClientComptesModel.swift */,
 				EC5EA815258E8B9A00D51540 /* CompteCourantModel.swift */,
+				EC3A6613259D228C00DAE3DE /* ConseillerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				EC1B34D12587FA2300602F24 /* ClientData.swift */,
 				EC9E0E2F258BDB7100C08794 /* ClientComptesData.swift */,
 				EC5EA812258E8B1F00D51540 /* CompteCourantData.swift */,
+				EC3A6617259D22C000DAE3DE /* ConseillerData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -193,7 +199,6 @@
 				EC1B348A258774FE00602F24 /* Sources */,
 				EC1B348B258774FE00602F24 /* Frameworks */,
 				EC1B348C258774FE00602F24 /* Resources */,
-				1ED22C6610FC0DCDDDA600D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,23 +255,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1ED22C6610FC0DCDDDA600D5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-projet/Pods-projet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-projet/Pods-projet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-projet/Pods-projet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5EAF2FE5EE4D98179D5056B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,9 +291,11 @@
 				EC1B34CF2587F5F300602F24 /* ClientEspaceViewController.swift in Sources */,
 				EC5EA816258E8B9A00D51540 /* CompteCourantModel.swift in Sources */,
 				EC2049AB2593D9D900468313 /* CourantDeposerViewController.swift in Sources */,
+				EC3A6618259D22C000DAE3DE /* ConseillerData.swift in Sources */,
 				EC5EA819258E9BFB00D51540 /* CompteCourantCell.swift in Sources */,
 				EC9E0E30258BDB7100C08794 /* ClientComptesData.swift in Sources */,
 				EC2049AE2593D9F400468313 /* CourantRetirerViewController.swift in Sources */,
+				EC3A6614259D228C00DAE3DE /* ConseillerModel.swift in Sources */,
 				EC1B34C72587E3A300602F24 /* HomeViewController.swift in Sources */,
 				EC9E0E33258BDBD000C08794 /* ClientComptesModel.swift in Sources */,
 				EC1B3492258774FE00602F24 /* AppDelegate.swift in Sources */,

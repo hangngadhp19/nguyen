@@ -45,6 +45,7 @@ class CompteCourantData{
         catch let error as NSError {
             print("\(error)")
         }
+        // end get data
         
         
         return arrDataCompte

@@ -7,11 +7,6 @@ target 'projet' do
 
   # Pods for projet
   
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
-  pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
+  
 
 end

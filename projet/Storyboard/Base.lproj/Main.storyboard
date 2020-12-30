@@ -102,7 +102,7 @@
                                     <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5nd-tJ-r6B" kind="show" id="gQ1-7X-n5Y"/>
+                                    <action selector="didSubmit:" destination="E2H-xd-NNV" eventType="touchUpInside" id="8KA-yp-LPJ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvw-0Y-F86">
@@ -206,13 +206,31 @@
                     <view key="view" contentMode="scaleToFill" id="67o-hL-7jw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYI-Sl-Sje">
+                                <rect key="frame" x="88" y="164" width="172" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Créer un conseiller"/>
+                                <connections>
+                                    <action selector="didCreateConseiller:" destination="FYh-2E-GZB" eventType="touchUpInside" id="8zb-OJ-eKf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alW-X5-OKo">
+                                <rect key="frame" x="102" y="248" width="131" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Créer un client"/>
+                                <connections>
+                                    <action selector="didCreateClient:" destination="FYh-2E-GZB" eventType="touchUpInside" id="O41-ut-GdI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4tB-vY-Yio"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxD-SV-uAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3383" y="33"/>
+            <point key="canvasLocation" x="3382.608695652174" y="32.8125"/>
         </scene>
         <!--Courant Deposer View Controller-->
         <scene sceneID="d5L-YW-6YU">

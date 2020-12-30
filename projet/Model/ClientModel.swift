@@ -12,4 +12,5 @@ struct ClientModel {
     let titleNom:String
     let titlePrenom:String
     let titleTelephone:String
+    let titleId:Int
 }

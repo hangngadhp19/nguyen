@@ -26,6 +26,12 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
         table.delegate = self
         table.dataSource = self
         
+        // get user_defaut: marked logined
+        let defaults = UserDefaults.standard
+        let isUserLogined = defaults.value(forKey: "isUserLoggedIn")
+        // print ("userlogin = \(String(describing: isUserLogined))")
+        // end get user_defaut: marked logined
+        
     }
     
 
