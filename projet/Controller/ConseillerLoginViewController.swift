@@ -53,8 +53,8 @@ class ConseillerLoginViewController: UIViewController {
         // insert data
         let newCompteCourant = NSEntityDescription.insertNewObject(forEntityName: "Conseiller", into: context)
         newCompteCourant.setValue(id + 1, forKey: "id")
-        newCompteCourant.setValue("admin", forKey: "password")
-        newCompteCourant.setValue("admin", forKey: "username")
+        newCompteCourant.setValue("test", forKey: "password")
+        newCompteCourant.setValue("test", forKey: "username")
         do {
           try context.save()
         } catch let error as NSError {
@@ -86,26 +86,71 @@ class ConseillerLoginViewController: UIViewController {
         // end get data to get id
         
         // insert data
-        let newCompteCourant = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context)
-        newCompteCourant.setValue(id + 1, forKey: "id")
-        newCompteCourant.setValue("nguyen", forKey: "nom")
-        newCompteCourant.setValue("nga", forKey: "prenom")
-        newCompteCourant.setValue("8 massena 75013", forKey: "adresse")
-        newCompteCourant.setValue("1234567890", forKey: "telephone")
-        newCompteCourant.setValue(1, forKey: "conseiller_id")
-        newCompteCourant.setValue("8007041149604", forKey: "num_compte")
-        newCompteCourant.setValue(1000, forKey: "compte_courant_solde")
-        newCompteCourant.setValue(10, forKey: "compte_livreta_solde")
-        newCompteCourant.setValue(200, forKey: "compte_epargne_solde")
-        newCompteCourant.setValue(false, forKey: "is_deleted")
-        newCompteCourant.setValue(Date(), forKey: "created_date")
-        newCompteCourant.setValue(Date(), forKey: "updated_date")
+        let newClient = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context)
+        newClient.setValue(id + 1, forKey: "id")
+        newClient.setValue("client", forKey: "nom")
+        newClient.setValue("client", forKey: "prenom")
+        newClient.setValue("8 massena 75013", forKey: "adresse")
+        newClient.setValue("1234567890", forKey: "telephone")
+        newClient.setValue(1, forKey: "conseiller_id")
+        newClient.setValue("8007041149605", forKey: "num_compte")
+        newClient.setValue(1000, forKey: "compte_courant_solde")
+        newClient.setValue(10, forKey: "compte_livreta_solde")
+        newClient.setValue(200, forKey: "compte_epargne_solde")
+        newClient.setValue(false, forKey: "is_deleted")
+        newClient.setValue(Date(), forKey: "created_date")
+        newClient.setValue(Date(), forKey: "updated_date")
         do {
           try context.save()
         } catch let error as NSError {
           print("Could not save. \(error), \(error.userInfo)")
         }
         // end insert data
+        
+        // insert data: compte courant
+        let newCompteCourant = NSEntityDescription.insertNewObject(forEntityName: "CompteCourant", into: context)
+        newCompteCourant.setValue(1, forKey: "id")
+        newCompteCourant.setValue(1, forKey: "type_compte")
+        newCompteCourant.setValue(2, forKey: "mark")
+        newCompteCourant.setValue(id + 1, forKey: "client_id")
+        newCompteCourant.setValue(Date(), forKey: "date_created")
+        newCompteCourant.setValue(1000, forKey: "argent")
+        do {
+          try context.save()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+        // end insert data: compte courant
+        
+        // insert data: compte livreta
+        let newCompteLivreta = NSEntityDescription.insertNewObject(forEntityName: "CompteLivretA", into: context)
+        newCompteLivreta.setValue(1, forKey: "id")
+        newCompteLivreta.setValue(2, forKey: "type_compte")
+        newCompteLivreta.setValue(2, forKey: "mark")
+        newCompteLivreta.setValue(id + 1, forKey: "client_id")
+        newCompteLivreta.setValue(Date(), forKey: "date_created")
+        newCompteLivreta.setValue(10, forKey: "argent")
+        do {
+          try context.save()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+        // end insert data: compte livreta
+        
+        // insert data: compte epargne
+        let newCompteEpargne = NSEntityDescription.insertNewObject(forEntityName: "CompteEpargne", into: context)
+        newCompteEpargne.setValue(1, forKey: "id")
+        newCompteEpargne.setValue(3, forKey: "type_compte")
+        newCompteEpargne.setValue(2, forKey: "mark")
+        newCompteEpargne.setValue(id + 1, forKey: "client_id")
+        newCompteEpargne.setValue(Date(), forKey: "date_created")
+        newCompteEpargne.setValue(200, forKey: "argent")
+        do {
+          try context.save()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+        // end insert data: compte epargne
     }
     
 }

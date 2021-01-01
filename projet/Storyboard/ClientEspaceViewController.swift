@@ -29,7 +29,6 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
         // get user_defaut: marked logined
         let defaults = UserDefaults.standard
         let isUserLogined = defaults.value(forKey: "isUserLoggedIn")
-        // print ("userlogin = \(String(describing: isUserLogined))")
         // end get user_defaut: marked logined
         
     }
@@ -74,12 +73,13 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         
+        vc.typeComptesPass = item.titleTypeComptes
         vc.item = item
         vc.deletionHander = { [weak self] in
             self?.refresh()
         }
         vc.navigationItem.largeTitleDisplayMode = .never
-        vc.title = item.titleNomComptes
+        vc.title = item.titleNomComptes  + ":" + " \(item.titleArgentSolde)"
         navigationController?.pushViewController(vc, animated: true)
         
     }

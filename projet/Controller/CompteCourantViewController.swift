@@ -12,6 +12,10 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
     public var item: ClientComptesModel?
     public var deletionHander: (() ->Void)?
     
+    public var typeComptesPass = 1
+    
+    public var titleNomComptes = "courant"
+    
     @IBOutlet var table: UITableView!
     private var arrData = [CompteCourantModel]()
     
@@ -22,7 +26,7 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
 
         // Do any additional setup after loading the view.
       
-        arrData = CompteCourantData.getAllCompteCourantData()
+        arrData = CompteCourantData.getAllCompteCourantData(typeComptes: typeComptesPass)
         
         table.register(CompteCourantCell.self, forCellReuseIdentifier: "cell")
         table.delegate = self
@@ -102,7 +106,21 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
             self?.refresh()
         }
         
-        vc.title = "Courant Retirer"
+        let parNomComptes = titleNomComptes
+        
+        vc.title = "\(parNomComptes) Retirer"
+        
+        var varTypeCompte = 1
+        if parNomComptes == "courant" {
+            varTypeCompte = 1
+        } else if parNomComptes == "livreta" {
+            varTypeCompte = 2
+        } else {
+            varTypeCompte = 3
+        }
+        
+        vc.selectedTypeCompte = varTypeCompte
+        
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -116,9 +134,24 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
             self?.refresh()
         }
         
-        vc.title = "Courant Déposer"
+        let parNomComptes = titleNomComptes
+        
+        vc.title = "\(parNomComptes) Déposer"
+        
+        var varTypeCompte = 1
+        if parNomComptes == "courant" {
+            varTypeCompte = 1
+        } else if parNomComptes == "livreta" {
+            varTypeCompte = 2
+        } else {
+            varTypeCompte = 3
+        }
+        
+        vc.selectedTypeCompte = varTypeCompte
+        
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }

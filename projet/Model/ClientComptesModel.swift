@@ -12,4 +12,5 @@ struct ClientComptesModel {
     let titleNomComptes:String
     let titleNumComptes:String
     let titleArgentSolde:Float
+    let titleTypeComptes:Int
 }

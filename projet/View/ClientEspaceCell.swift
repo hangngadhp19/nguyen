@@ -42,7 +42,6 @@ class ClientEspaceCell : UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
-        //label.text = "1"
         label.textColor = .black
         return label
     }()

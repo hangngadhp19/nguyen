@@ -7,19 +7,41 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ClientComptesData{
     
     static func getAllClientComptesData() -> [ClientComptesModel]{
         var arrData = [ClientComptesModel]()
         
-        arrData = [
+        // get id User
+        let defaults = UserDefaults.standard
+        let idUserLogined = defaults.value(forKey: "idUser")
+        // end get id User
         
-            ClientComptesModel(titleNomComptes: "Compte Courrant", titleNumComptes: "7707427", titleArgentSolde: 10000),
-            ClientComptesModel(titleNomComptes: "Compte Livret A", titleNumComptes: "7707427", titleArgentSolde: 20000),
-            ClientComptesModel(titleNomComptes: "Compte Épargne", titleNumComptes: "7707427", titleArgentSolde: 30000)
+        // connect db
+        let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context:NSManagedObjectContext = appDel.persistentContainer.viewContext
+        
+        // get data
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Client")
+        request.returnsObjectsAsFaults = false
+        let predicate = NSPredicate(format: "id = %i", idUserLogined as! Int)
+        request.predicate = predicate
+        do {
+            let result = try context.fetch(request) as! [NSManagedObject]
             
-        ]
+            arrData = [
+            
+                ClientComptesModel(titleNomComptes: "courant", titleNumComptes: result[0].value(forKey: "num_compte") as! String, titleArgentSolde: result[0].value(forKey: "compte_courant_solde") as! Float, titleTypeComptes: 1),
+                ClientComptesModel(titleNomComptes: "livreta", titleNumComptes: result[0].value(forKey: "num_compte") as! String, titleArgentSolde: result[0].value(forKey: "compte_livreta_solde") as! Float, titleTypeComptes: 2),
+                ClientComptesModel(titleNomComptes: "epargne", titleNumComptes: result[0].value(forKey: "num_compte") as! String, titleArgentSolde: result[0].value(forKey: "compte_epargne_solde") as! Float, titleTypeComptes: 3)
+                
+            ]
+        }
+        catch let error as NSError {
+            print("\(error)")
+        }
         
         return arrData
     }

@@ -25,8 +25,9 @@ class ClientLoginViewController: UIViewController {
         // get user_defaut: marked logined
         let defaults = UserDefaults.standard
         defaults.set(false, forKey: "isUserLoggedIn")
-        let isUserLogined = defaults.value(forKey: "isUserLoggedIn")
-        // print ("userlogin = \(String(describing: isUserLogined))")
+        defaults.set(0, forKey: "idUser")
+        defaults.set("", forKey: "nomUser")
+        defaults.set("", forKey: "prenomUser")
         // end get user_defaut: marked logined
     }
     
@@ -66,8 +67,6 @@ class ClientLoginViewController: UIViewController {
         } else {
             for result in arrData {
                 
-                print (result)
-                
                 let valueNom = result.titleNom
                 let trimmedValueNom = valueNom.trimmingCharacters(in: .whitespacesAndNewlines)
                 let trimmedLblNom = lblNom.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -83,6 +82,9 @@ class ClientLoginViewController: UIViewController {
                 if ((trimmedValueNom.elementsEqual(trimmedLblNom)) == true) && ((trimmedValuePreNom.elementsEqual(trimmedLblPreNom)) == true) && ((trimmedValueTelephone.elementsEqual(trimmedLblTelephone)) == true) {
                 
                     UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                    UserDefaults.standard.set(result.titleId, forKey: "idUser")
+                    UserDefaults.standard.set(valueNom, forKey: "nomUser")
+                    UserDefaults.standard.set(valuePreNom, forKey: "prenomUser")
                     UserDefaults.standard.synchronize()
                     
                     // move form continue
