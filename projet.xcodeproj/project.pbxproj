@@ -30,6 +30,7 @@
 		EC5EA813258E8B1F00D51540 /* CompteCourantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EA812258E8B1F00D51540 /* CompteCourantData.swift */; };
 		EC5EA816258E8B9A00D51540 /* CompteCourantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EA815258E8B9A00D51540 /* CompteCourantModel.swift */; };
 		EC5EA819258E9BFB00D51540 /* CompteCourantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EA818258E9BFB00D51540 /* CompteCourantCell.swift */; };
+		EC9709CA25A1C94700C04C7A /* VirerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9709C925A1C94700C04C7A /* VirerViewController.swift */; };
 		EC9E0E30258BDB7100C08794 /* ClientComptesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0E2F258BDB7100C08794 /* ClientComptesData.swift */; };
 		EC9E0E33258BDBD000C08794 /* ClientComptesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0E32258BDBD000C08794 /* ClientComptesModel.swift */; };
 		EC9E0E3E258BF13200C08794 /* CompteCourantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0E3D258BF13200C08794 /* CompteCourantViewController.swift */; };
@@ -62,6 +63,7 @@
 		EC5EA812258E8B1F00D51540 /* CompteCourantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteCourantData.swift; sourceTree = "<group>"; };
 		EC5EA815258E8B9A00D51540 /* CompteCourantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteCourantModel.swift; sourceTree = "<group>"; };
 		EC5EA818258E9BFB00D51540 /* CompteCourantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteCourantCell.swift; sourceTree = "<group>"; };
+		EC9709C925A1C94700C04C7A /* VirerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirerViewController.swift; sourceTree = "<group>"; };
 		EC9E0E2F258BDB7100C08794 /* ClientComptesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientComptesData.swift; sourceTree = "<group>"; };
 		EC9E0E32258BDBD000C08794 /* ClientComptesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientComptesModel.swift; sourceTree = "<group>"; };
 		EC9E0E3D258BF13200C08794 /* CompteCourantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteCourantViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				EC5EA80B258E53A400D51540 /* ConseillerLoginViewController.swift */,
 				EC2049AA2593D9D900468313 /* CourantDeposerViewController.swift */,
 				EC2049AD2593D9F400468313 /* CourantRetirerViewController.swift */,
+				EC9709C925A1C94700C04C7A /* VirerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				EC1B3496258774FE00602F24 /* ViewController.swift in Sources */,
 				EC1B34D52587FA4B00602F24 /* ClientModel.swift in Sources */,
 				EC1B34CF2587F5F300602F24 /* ClientEspaceViewController.swift in Sources */,
+				EC9709CA25A1C94700C04C7A /* VirerViewController.swift in Sources */,
 				EC5EA816258E8B9A00D51540 /* CompteCourantModel.swift in Sources */,
 				EC2049AB2593D9D900468313 /* CourantDeposerViewController.swift in Sources */,
 				EC3A6618259D22C000DAE3DE /* ConseillerData.swift in Sources */,

@@ -98,6 +98,8 @@ class ConseillerLoginViewController: UIViewController {
         newClient.setValue(10, forKey: "compte_livreta_solde")
         newClient.setValue(200, forKey: "compte_epargne_solde")
         newClient.setValue(false, forKey: "is_deleted")
+        newClient.setValue(false, forKey: "is_close_compte_livreta")
+        newClient.setValue(false, forKey: "is_close_compte_epargne")
         newClient.setValue(Date(), forKey: "created_date")
         newClient.setValue(Date(), forKey: "updated_date")
         do {

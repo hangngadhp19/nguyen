@@ -65,34 +65,62 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: tableView.frame.size.height))
         headerView.backgroundColor = UIColor.link
         
-        let title = UILabel()
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.text = "Déposer"
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CompteCourantViewController.titleClickedDeposer))
-        title.isUserInteractionEnabled = true
-        title.addGestureRecognizer(tap)
-        title.textColor = .white
-        title.font = UIFont.boldSystemFont(ofSize: 16)
-        headerView.addSubview(title)
-    
+        if typeComptesPass == 1 {
         
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Retirer", for: .normal)
-        button.addTarget(self,action:#selector(buttonClickedRetirer),for:.touchUpInside)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        headerView.addSubview(button)
+            let title = UILabel()
+            title.translatesAutoresizingMaskIntoConstraints = false
+            title.text = "Déposer"
+            let tap = UITapGestureRecognizer(target: self, action: #selector(CompteCourantViewController.titleClickedDeposer))
+            title.isUserInteractionEnabled = true
+            title.addGestureRecognizer(tap)
+            title.textColor = .white
+            title.font = UIFont.boldSystemFont(ofSize: 16)
+            headerView.addSubview(title)
         
-        var headerViews = Dictionary<String, UIView>()
-        headerViews["title"] = title
-        headerViews["button"] = button
+            
+            let button = UIButton(type: .system)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setTitle("Retirer", for: .normal)
+            button.addTarget(self,action:#selector(buttonClickedRetirer),for:.touchUpInside)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            headerView.addSubview(button)
+            
+            var headerViews = Dictionary<String, UIView>()
+            headerViews["title"] = title
+            headerViews["button"] = button
 
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[title]-[button]-15-|", options: [], metrics: nil, views: headerViews))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[title]-|", options: [], metrics: nil, views: headerViews))
-        headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button]-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[title]-[button]-15-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[title]-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button]-|", options: [], metrics: nil, views: headerViews))
+        } else {
+            let title = UILabel()
+            title.translatesAutoresizingMaskIntoConstraints = false
+            title.text = ""
+            let tap = UITapGestureRecognizer(target: self, action: #selector(CompteCourantViewController.titleClickedDeposer))
+            title.isUserInteractionEnabled = true
+            title.addGestureRecognizer(tap)
+            title.textColor = .white
+            title.font = UIFont.boldSystemFont(ofSize: 16)
+            headerView.addSubview(title)
+            
+            let button = UIButton(type: .system)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setTitle("Virement", for: .normal)
+            button.addTarget(self,action:#selector(buttonClickedVirer),for:.touchUpInside)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            headerView.addSubview(button)
+            
+            var headerViews = Dictionary<String, UIView>()
+            headerViews["title"] = title
+            headerViews["button"] = button
 
-    
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[title]-[button]-15-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[title]-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button]-|", options: [], metrics: nil, views: headerViews))
+        }
+        
         return headerView
     }
     
@@ -152,6 +180,35 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    @objc func buttonClickedVirer(sender:UIButton)
+    {
+        guard let vc = storyboard?.instantiateViewController(identifier: "virement") as? VirerViewController else {
+            return
+        }
+        
+        vc.completionHandler = { [weak self] in
+            self?.refresh()
+        }
+        
+        let parNomComptes = typeComptesPass == 2 ? (typeComptesPass == 1 ? "courant" : "livreta") : "epargne"
+        
+        vc.title = "\(parNomComptes) Virement"
+        
+        var varTypeCompte = 1
+        if parNomComptes == "courant" {
+            varTypeCompte = 1
+        } else if parNomComptes == "livreta" {
+            varTypeCompte = 2
+        } else {
+            varTypeCompte = 3
+        }
+        
+        vc.selectedTypeCompte = varTypeCompte
+        
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

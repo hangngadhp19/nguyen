@@ -8,6 +8,8 @@
         <attribute name="conseiller_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="created_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="is_close_compte_epargne" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="is_close_compte_livreta" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="is_deleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="nom" optional="YES" attributeType="String"/>
         <attribute name="num_compte" optional="YES" attributeType="String"/>
@@ -45,7 +47,7 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Client" positionX="-145.4888305664062" positionY="-240.5591888427734" width="128" height="224"/>
+        <element name="Client" positionX="-145.4888305664062" positionY="-240.5591888427734" width="128" height="254"/>
         <element name="CompteCourant" positionX="-351.4403076171875" positionY="-22.4815673828125" width="128" height="119"/>
         <element name="CompteEpargne" positionX="48.4130859375" positionY="-20.42532348632812" width="128" height="119"/>
         <element name="CompteLivretA" positionX="-144.9595336914062" positionY="-18.16766357421875" width="128" height="119"/>
