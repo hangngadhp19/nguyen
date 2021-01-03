@@ -46,6 +46,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="gfA-2i-x2Y">
                         <barButtonItem key="backBarButtonItem" title="Retour" id="vYB-uU-AyS"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="fXZ-HZ-9m6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YWl-LM-qmc">
+                                <rect key="frame" x="355" y="7" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <action selector="onClickMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vrg-xs-vlo"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

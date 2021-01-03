@@ -191,7 +191,7 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
                     if (argentCaculated < 10) && (typeCompte == 2) {
                         displayMyAlertMessage(userMessage: "Ce compte doit être d'au moins 10 euros, sinon le compte sera fermé.")
                         return
-                    } else if (argentCaculated == 0) && (typeCompte == 3) {
+                    } else if (argentCaculated <= 0) && (typeCompte == 3) {
                         displayMyAlertMessage(userMessage: "L'argent de ce compte est égal à 0, le compte sera fermé.")
                         return
                     }
