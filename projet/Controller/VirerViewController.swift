@@ -27,6 +27,7 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     let typeCompteLivreta = ["", "Compte Courant", "Compte Épargne"]
     let typeCompteEpargne = ["", "Compte Courant", "Compte Livret A"]
+    let typeCompteCourant = ["", "Compte Livret A", "Compte Épargne"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,10 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         if selectedTypeCompte == 2 {
             txtCompteDebiter.text = "Compte Livret A"
-        } else {
+        } else if selectedTypeCompte == 3 {
             txtCompteDebiter.text = "Compte Épargne"
+        } else {
+            txtCompteDebiter.text = "Compte Courant"
         }
         txtCompteDebiter.isUserInteractionEnabled = false
     }
@@ -52,8 +55,10 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if selectedTypeCompte == 2 {
             return typeCompteLivreta.count
-        } else {
+        } else if selectedTypeCompte == 3 {
             return typeCompteEpargne.count
+        } else {
+            return typeCompteCourant.count
         }
     }
     
@@ -61,8 +66,10 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if selectedTypeCompte == 2 {
             return typeCompteLivreta[row]
-        } else {
+        } else if selectedTypeCompte == 3 {
             return typeCompteEpargne[row]
+        } else {
+            return typeCompteCourant[row]
         }
     }
     
@@ -71,17 +78,27 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if selectedTypeCompte == 2 {
             pickerTextField.text = typeCompteLivreta[row]
-        } else {
+        } else if selectedTypeCompte == 3 {
             pickerTextField.text = typeCompteEpargne[row]
+        } else {
+            pickerTextField.text = typeCompteCourant[row]
         }
     }
     
     @IBAction func didTapSave(_ sender: Any) {
         
         let textSelected = pickerTextField.text as! String
-        let typeCompteSelected = textSelected == "Compte Livret A" ? (textSelected == "Compte Épargne" ? 3 : 2) : 1
+        var typeCompteSelected = 1
         var varNomRecu = "courant"
         var varEntityNameRecu = "CompteCourant"
+        
+        if textSelected == "Compte Épargne" {
+            typeCompteSelected = 3
+        } else if textSelected == "Compte Livret A" {
+            typeCompteSelected = 2
+        } else {
+            typeCompteSelected = 1
+        }
         
         if typeCompteSelected == 1 {
             varNomRecu = "courant"

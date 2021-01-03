@@ -88,7 +88,7 @@ class ConseillerLoginViewController: UIViewController {
         // insert data
         let newClient = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context)
         newClient.setValue(id + 1, forKey: "id")
-        newClient.setValue("user", forKey: "nom")
+        newClient.setValue("tester", forKey: "nom")
         newClient.setValue("client", forKey: "prenom")
         newClient.setValue("8 massena 75013", forKey: "adresse")
         newClient.setValue("1234567890", forKey: "telephone")

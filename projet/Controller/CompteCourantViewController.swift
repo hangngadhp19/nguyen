@@ -86,12 +86,22 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             headerView.addSubview(button)
             
+            let button1 = UIButton(type: .system)
+            button1.translatesAutoresizingMaskIntoConstraints = false
+            button1.setTitle("Virement", for: .normal)
+            button1.addTarget(self,action:#selector(buttonClickedVirer),for:.touchUpInside)
+            button1.setTitleColor(.white, for: .normal)
+            button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            headerView.addSubview(button1)
+            
             var headerViews = Dictionary<String, UIView>()
             headerViews["title"] = title
             headerViews["button"] = button
+            headerViews["button1"] = button1
 
-            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[title]-[button]-15-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[title]-[button1]-55-[button]-15-|", options: [], metrics: nil, views: headerViews))
             headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[title]-|", options: [], metrics: nil, views: headerViews))
+            headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button1]-|", options: [], metrics: nil, views: headerViews))
             headerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[button]-|", options: [], metrics: nil, views: headerViews))
         } else {
             let title = UILabel()
@@ -192,7 +202,14 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
             self?.refresh()
         }
         
-        let parNomComptes = typeComptesPass == 2 ? (typeComptesPass == 1 ? "courant" : "livreta") : "epargne"
+        var parNomComptes = "courant"
+        if typeComptesPass == 1 {
+            parNomComptes = "courant"
+        } else if typeComptesPass == 2 {
+            parNomComptes = "livreta"
+        } else {
+            parNomComptes = "epargne"
+        }
         
         vc.title = "\(parNomComptes) Virement"
         
