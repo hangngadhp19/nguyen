@@ -16,8 +16,8 @@ class CompteCourantCell : UITableViewCell {
             // labelDateCreated.text = compteCourantData?.titleDateCreated
             labelMark.text = compteCourantData?.titleMark == 1 ? "Vire" : compteCourantData?.titleMark == 2 ? "Déposer" : "Retirer"
             labelTypeCompte.text = compteCourantData?.titleTypeCompte == 1 ? "Compte Courant (\(compteCourantData?.titleId)" : compteCourantData?.titleTypeCompte == 2 ? "Compte Livret A" : "Compte Épargne"
-            labelArgent.text = compteCourantData?.titleMark == 1 || compteCourantData?.titleMark == 3 ? "-" + String(compteCourantData?.titleArgent ?? 0) : String(compteCourantData?.titleArgent ?? 0)
-              
+            labelArgent.text = (compteCourantData?.titleMark == 1 && compteCourantData?.titleMarkRecu == false) || compteCourantData?.titleMark == 3 ? "-" + String(compteCourantData?.titleArgent ?? 0) : String(compteCourantData?.titleArgent ?? 0)
+           
          }
      }
      

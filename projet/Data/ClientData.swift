@@ -37,9 +37,7 @@ class ClientData{
         /*
         arrData = [
         
-            ClientModel(titleNom: "test", titlePrenom: "test", titleTelephone: "1234567890", titleId: 2),
-            ClientModel(titleNom: "tom", titlePrenom: "cruise", titleTelephone: "0787023751", titleId: 1)
-            
+            ClientModel(titleNom: "user", titlePrenom: "client", titleTelephone: "1234567890", titleId: 2)
         ]
         */
         return arrData

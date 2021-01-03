@@ -140,6 +140,7 @@ class CourantRetirerViewController: UIViewController {
         newCompteCourant.setValue(id_deposer + 1, forKey: "id")
         newCompteCourant.setValue(3, forKey: "mark")
         newCompteCourant.setValue(typeCompte, forKey: "type_compte")
+        newCompteCourant.setValue(false, forKey: "mark_recu")
         do {
           try context.save()
         } catch let error as NSError {

@@ -11,6 +11,7 @@ import UIKit
 struct CompteCourantModel {
     let titleDateCreated:Date
     let titleMark:Int
+    let titleMarkRecu:Bool
     let titleTypeCompte:Int
     let titleArgent:Float
     let titleClientId:Int

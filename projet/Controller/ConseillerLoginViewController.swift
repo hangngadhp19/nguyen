@@ -88,7 +88,7 @@ class ConseillerLoginViewController: UIViewController {
         // insert data
         let newClient = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context)
         newClient.setValue(id + 1, forKey: "id")
-        newClient.setValue("client", forKey: "nom")
+        newClient.setValue("user", forKey: "nom")
         newClient.setValue("client", forKey: "prenom")
         newClient.setValue("8 massena 75013", forKey: "adresse")
         newClient.setValue("1234567890", forKey: "telephone")
@@ -117,6 +117,7 @@ class ConseillerLoginViewController: UIViewController {
         newCompteCourant.setValue(id + 1, forKey: "client_id")
         newCompteCourant.setValue(Date(), forKey: "date_created")
         newCompteCourant.setValue(1000, forKey: "argent")
+        newCompteCourant.setValue(false, forKey: "mark_recu")
         do {
           try context.save()
         } catch let error as NSError {
@@ -132,6 +133,7 @@ class ConseillerLoginViewController: UIViewController {
         newCompteLivreta.setValue(id + 1, forKey: "client_id")
         newCompteLivreta.setValue(Date(), forKey: "date_created")
         newCompteLivreta.setValue(10, forKey: "argent")
+        newCompteLivreta.setValue(false, forKey: "mark_recu")
         do {
           try context.save()
         } catch let error as NSError {
@@ -147,6 +149,7 @@ class ConseillerLoginViewController: UIViewController {
         newCompteEpargne.setValue(id + 1, forKey: "client_id")
         newCompteEpargne.setValue(Date(), forKey: "date_created")
         newCompteEpargne.setValue(200, forKey: "argent")
+        newCompteEpargne.setValue(false, forKey: "mark_recu")
         do {
           try context.save()
         } catch let error as NSError {

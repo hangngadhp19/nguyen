@@ -57,7 +57,7 @@ class CompteCourantData{
             
             for result in results as! [NSManagedObject] {
                 
-                arrDataCompte.append(CompteCourantModel(titleDateCreated: dateFormatter.date(from: "2020-12-29")!, titleMark: result.value(forKey: "mark") as! Int, titleTypeCompte:result.value(forKey: "type_compte") as! Int, titleArgent: result.value(forKey: "argent") as! Float, titleClientId: result.value(forKey: "client_id") as! Int, titleId: result.value(forKey: "id") as! Int))
+                arrDataCompte.append(CompteCourantModel(titleDateCreated: dateFormatter.date(from: "2020-12-29")!, titleMark: result.value(forKey: "mark") as! Int, titleMarkRecu: result.value(forKey: "mark_recu") as! Bool, titleTypeCompte:result.value(forKey: "type_compte") as! Int, titleArgent: result.value(forKey: "argent") as! Float, titleClientId: result.value(forKey: "client_id") as! Int, titleId: result.value(forKey: "id") as! Int))
             }
         }
         catch let error as NSError {
