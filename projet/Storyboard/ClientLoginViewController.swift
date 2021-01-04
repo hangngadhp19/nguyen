@@ -29,6 +29,9 @@ class ClientLoginViewController: UIViewController {
         defaults.set("", forKey: "nomUser")
         defaults.set("", forKey: "prenomUser")
         // end get user_defaut: marked logined
+        
+        // no show title for button back
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
 
@@ -106,4 +109,19 @@ class ClientLoginViewController: UIViewController {
         }
          
     }
+    
+    
+    @IBAction func didTapReset(_ sender: Any) {
+        txtNom.text = ""
+        txtPrenom.text = ""
+        txtTelephone.text = ""
+    }
 }
+
+/*
+extension UIViewController {
+    open override func awakeFromNib() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+}
+*/

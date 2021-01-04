@@ -31,6 +31,9 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
         table.register(CompteCourantCell.self, forCellReuseIdentifier: "cell")
         table.delegate = self
         table.dataSource = self
+        
+        // no show title for button back
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

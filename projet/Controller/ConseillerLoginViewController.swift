@@ -15,6 +15,8 @@ class ConseillerLoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
+        // no show title for button back
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
 

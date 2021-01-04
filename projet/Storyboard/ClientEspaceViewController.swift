@@ -31,6 +31,8 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
         let isUserLogined = defaults.value(forKey: "isUserLoggedIn")
         // end get user_defaut: marked logined
         
+        // no show button back
+        self.navigationItem.hidesBackButton = true
     }
     
 
@@ -89,3 +91,5 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
     }
 
 }
+
+
