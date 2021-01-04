@@ -16,30 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-rh-9jg">
-                                <rect key="frame" x="52" y="179" width="200" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Banque VIB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mok-xe-jKE">
+                                <rect key="frame" x="86" y="152" width="208" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Conseiller">
-                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapConseillerButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="cjN-TP-o42"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-4w-f2r">
-                                <rect key="frame" x="52" y="281" width="200" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Clients">
-                                    <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="E2H-xd-NNV" kind="show" id="EgP-eQ-GqQ"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -57,15 +40,18 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="butMenu" destination="fXZ-HZ-9m6" id="m26-Fk-UQa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="33"/>
+            <point key="canvasLocation" x="453.62318840579712" y="32.8125"/>
         </scene>
         <!--Client Login View Controller-->
         <scene sceneID="0gA-IN-LXK">
             <objects>
-                <viewController id="E2H-xd-NNV" customClass="ClientLoginViewController" customModule="projet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="client_login" id="E2H-xd-NNV" customClass="ClientLoginViewController" customModule="projet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WDN-ae-gz8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -477,6 +463,9 @@
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>

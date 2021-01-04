@@ -13,13 +13,38 @@ class HomeViewController: UIViewController {
     var tableView = UITableView()
     let height: CGFloat = 100
     var settingArray = ["Conseiller", "Client"]
+        
+    @IBOutlet weak var butMenu: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Banque ABC"
 
         // Do any additional setup after loading the view.
+        
+        // begin change image for background
+        let backgroundImage = UIImage.init(named: "eiffel")
+        let backgroundImageView = UIImageView.init(frame: self.view.frame)
+        backgroundImageView.image = backgroundImage
+        backgroundImageView.contentMode = .scaleAspectFill
+        // backgroundImageView.alpha = 0.1
+        self.view.insertSubview(backgroundImageView, at: 0)
+        // end change image for background
+        
+        // begin change icon menu for button
+        //create a new button
+        let butMenu = UIButton(type: .custom)
+        //set image for button
+        butMenu.setImage(UIImage(named: "icon_menu.jpg"), for: .normal)
+        //add function for button
+        butMenu.addTarget(self, action: #selector(onClickMenu), for: .touchUpInside)
+        //set frame
+        butMenu.frame = CGRect(x: 15, y: 10, width: 30, height: 30)
+        butMenu.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        butMenu.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        let barButton = UIBarButtonItem(customView: butMenu)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        // end change icon menu for button
         
         tableView.isScrollEnabled = true
         tableView.delegate = self
@@ -87,8 +112,26 @@ class HomeViewController: UIViewController {
         } completion: { (true) in
             return
         }
-
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        onclickTransparentView()
+        
+        switch indexPath.row {
+        case 0:
+            guard let vc = storyboard?.instantiateViewController(identifier: "conseiller_login") else {
+                fatalError("Unable to create view controller")
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            guard let vc = storyboard?.instantiateViewController(identifier: "client_login") else {
+                fatalError("Unable to create view controller")
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            print ("Unable to create view controller")
+        }
     }
 }
 
