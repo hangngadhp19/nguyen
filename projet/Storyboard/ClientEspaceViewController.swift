@@ -11,13 +11,25 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet var table: UITableView!
     private var arrData = [ClientComptesModel]()
-    
+    /*
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Mes comptes"
+        // title = "Mes comptes"
         
         // Do any additional setup after loading the view.
+        
+        setupNavigationBarItems()
         
         arrData = ClientComptesData.getAllClientComptesData()
         
@@ -32,7 +44,18 @@ class ClientEspaceViewController: UIViewController, UITableViewDelegate, UITable
         // end get user_defaut: marked logined
         
         // no show button back
-        self.navigationItem.hidesBackButton = true
+        // self.navigationItem.hidesBackButton = true
+        
+        //-- top bar ------
+        /*
+        setTitle(BarTitle: "Mes comptes")
+        rightBarButton()
+        leftBarButton()
+        */
+    }
+    
+    private func setupNavigationBarItems() {
+        print ("123")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
