@@ -34,6 +34,11 @@ class CompteCourantViewController: UIViewController, UITableViewDelegate, UITabl
         
         // no show title for button back
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        
+        // Navigation Bar Text: change color for title
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

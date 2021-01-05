@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import Foundation
 
-class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var txtCompteDebiter: UITextField!
     @IBOutlet weak var txtMontant: UITextField!
@@ -24,6 +24,16 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         dateFormatter.dateStyle = .medium
         return dateFormatter
     }()
+    
+    // argent only input number
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let allowedCharacters = ".1234567890" // Float
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+    }
     
     let typeCompteLivreta = ["", "Compte Courant", "Compte Épargne"]
     let typeCompteEpargne = ["", "Compte Courant", "Compte Livret A"]
@@ -49,6 +59,9 @@ class VirerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         // no show title for button back
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // argent only input number
+        txtMontant.delegate = self
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

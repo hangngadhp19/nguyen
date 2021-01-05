@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class CourantDeposerViewController: UIViewController {
+class CourantDeposerViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txt_argent_depose: UITextField!
     
@@ -16,11 +16,23 @@ class CourantDeposerViewController: UIViewController {
     
     public var selectedTypeCompte: Int = 1
     
+    @IBOutlet weak var butSave: UIButton!
+    
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         return dateFormatter
     }()
+    
+    // argent only input number
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let allowedCharacters = "1234567890" // Int
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +41,10 @@ class CourantDeposerViewController: UIViewController {
         
         // no show title for button back
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // argent only input number
+        txt_argent_depose.delegate = self
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func displayMyAlertMessage(userMessage:String) {
 
@@ -236,5 +241,4 @@ class CourantDeposerViewController: UIViewController {
     @IBAction func didTapReset(_ sender: Any) {
         txt_argent_depose.text = ""
     }
-    
 }

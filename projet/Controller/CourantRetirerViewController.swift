@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class CourantRetirerViewController: UIViewController {
+class CourantRetirerViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txt_argent: UITextField!
     
@@ -22,6 +22,16 @@ class CourantRetirerViewController: UIViewController {
         return dateFormatter
     }()
     
+    // argent only input number
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let allowedCharacters = "1234567890" // Int
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,19 +39,10 @@ class CourantRetirerViewController: UIViewController {
      
         // no show title for button back
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // argent only input number
+        txt_argent.delegate = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func didTapSaveButton(_ sender: Any) {
         let lblArgent = txt_argent.text!
